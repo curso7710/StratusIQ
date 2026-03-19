@@ -1,0 +1,108 @@
+{
+  "format_version": "1.0",
+  "terraform_version": "1.5.0",
+  "planned_values": {
+    "root_module": {
+      "resources": [
+        {
+          "address": "aws_instance.web_server",
+          "type": "aws_instance",
+          "name": "web_server",
+          "values": {
+            "instance_type": "m5.4xlarge",
+            "ami": "ami-0c55b159cbfafe1f0",
+            "vpc_security_group_ids": ["sg-0123456789abcdef0"],
+            "subnet_id": "subnet-12345678",
+            "tags": {
+              "Name": "WebServer",
+              "Environment": "production"
+            }
+          }
+        },
+        {
+          "address": "aws_security_group.web_sg",
+          "type": "aws_security_group",
+          "name": "web_sg",
+          "values": {
+            "name": "web-security-group",
+            "description": "Security group for web servers",
+            "vpc_id": "vpc-12345678",
+            "ingress": [
+              {
+                "from_port": 22,
+                "to_port": 22,
+                "protocol": "tcp",
+                "cidr_blocks": ["0.0.0.0/0"],
+                "description": "SSH access"
+              },
+              {
+                "from_port": 80,
+                "to_port": 80,
+                "protocol": "tcp",
+                "cidr_blocks": ["0.0.0.0/0"],
+                "description": "HTTP access"
+              }
+            ]
+          }
+        },
+        {
+          "address": "aws_ebs_volume.data_volume",
+          "type": "aws_ebs_volume",
+          "name": "data_volume",
+          "values": {
+            "availability_zone": "us-east-1a",
+            "size": 100,
+            "type": "gp3",
+            "encrypted": false,
+            "tags": {
+              "Name": "DataVolume"
+            }
+          }
+        },
+        {
+          "address": "aws_ebs_volume.unused_volume",
+          "type": "aws_ebs_volume",
+          "name": "unused_volume",
+          "values": {
+            "availability_zone": "us-east-1a",
+            "size": 50,
+            "type": "gp2",
+            "encrypted": false,
+            "state": "available",
+            "attachments": []
+          }
+        },
+        {
+          "address": "aws_s3_bucket.public_bucket",
+          "type": "aws_s3_bucket",
+          "name": "public_bucket",
+          "values": {
+            "bucket": "my-public-bucket-12345",
+            "acl": "public-read",
+            "tags": {
+              "Name": "PublicBucket"
+            }
+          }
+        },
+        {
+          "address": "aws_iam_role.admin_role",
+          "type": "aws_iam_role",
+          "name": "admin_role",
+          "values": {
+            "name": "AdminRole",
+            "assume_role_policy": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Principal": "*",
+                  "Action": "sts:AssumeRole"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}
